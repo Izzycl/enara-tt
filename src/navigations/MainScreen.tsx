@@ -1,5 +1,11 @@
 import React, { FC, useState, useEffect } from 'react';
-import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  useWindowDimensions,
+  Button,
+} from 'react-native';
 import { BaseButton, BaseText } from '../components/index';
 import { board } from '../json/test-board-1.json';
 import { ILetter } from '../types/Common';
@@ -69,6 +75,8 @@ const MainScreen: FC<MainScreenProps> = (props) => {
       paddingHorizontal: 0,
       backgroundColor: word ? 'red' : 'gray',
       borderWidth: 0,
+      fontSize: 12,
+      color: 'white',
     },
     baseText: {
       fontSize: 0,
@@ -84,22 +92,18 @@ const MainScreen: FC<MainScreenProps> = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.actionButton}>
-        <BaseButton
-          label="X"
+        <Button
+          title="Clean Word"
           onPress={() => resetSelected()}
           disabled={word ? false : true}
-          baseStyle={styles.customBtnBase}
-          baseText={styles.baseText}
         />
-        <BaseButton
-          label="R"
+        <Button
+          title="Randomizer the list"
           onPress={() => {
             randomOrderLetter(board);
             setWord('');
           }}
           disabled={false}
-          baseStyle={{ ...styles.customBtnBase, ...{ backgroundColor: 'red' } }}
-          baseText={styles.baseText}
         />
       </View>
 

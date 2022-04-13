@@ -12,7 +12,7 @@ const BaseText: FC<BaseTextProps> = ({ word = '' }) => {
       width: width,
     },
     text: {
-      fontSize: 23,
+      fontSize: 20,
       fontWeight: '800',
       color: status === 'VALID' ? 'green' : 'red',
     },

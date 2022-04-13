@@ -8,6 +8,7 @@ import {
   useWindowDimensions,
   ViewStyle,
   TextStyle,
+  TouchableOpacity,
 } from 'react-native';
 
 interface BaseButtonProps {
@@ -29,6 +30,7 @@ const BaseButton: FC<BaseButtonProps> = ({
 
   const styles = StyleSheet.create({
     base: {
+      flexDirection: 'row',
       width: width / 5,
       marginVertical: 10,
       paddingVertical: 10,
@@ -43,20 +45,19 @@ const BaseButton: FC<BaseButtonProps> = ({
     baseText: {
       color: 'white',
       fontWeight: '700',
-      fontSize: 50,
+      fontSize: 43,
+      zIndex: 2,
     },
   });
 
   return (
-    <TouchableHighlight
+    <TouchableOpacity
       onPress={onPress}
       style={[styles.base, baseStyle]}
       disabled={disabled}
     >
-      <View>
-        <Text style={[styles.baseText, baseText]}>{label}</Text>
-      </View>
-    </TouchableHighlight>
+      <Text style={[styles.baseText, baseText]}>{label}</Text>
+    </TouchableOpacity>
   );
 };
 
